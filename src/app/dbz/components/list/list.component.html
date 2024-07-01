@@ -1,0 +1,38 @@
+<!-- <h4>Listado de personajes</h4>
+<ul class="list-group">
+  <li class="list-group-item">Krilling - 500</li>
+  <li class="list-group-item">Goju - 5000</li>
+  <li class="list-group-item">Trunks - 700</li>
+</ul> -->
+
+<h4>Listado de personajes</h4>
+<ul class="list-group">
+  <li *ngFor="let character of characterList;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;"
+    class="list-group-item d-flex justify-content-between align-items-center"
+    [ngClass]="{
+      'list-group-item-dark': isEven,
+      'list-group-item-success': isLast,
+    }">
+
+  <div>
+    <span class="text-primary">{{i+1}}.</span>
+    {{character.name}} - {{character.power}}
+    <!-- <span>es el primer {{isFirst}}</span>
+    <span>, es par {{!isEven}}</span> -->
+  </div>
+
+  <button class="btn btn-danger" (click)="onDeleteCharacter(character.id)" >X</button>
+
+  </li>
+
+
+
+  <!-- <li class="list-group-item"
+    *ngFor="let character of pruebaList" >
+      {{character.name}} - {{character.power}}
+    </li> -->
+</ul>
